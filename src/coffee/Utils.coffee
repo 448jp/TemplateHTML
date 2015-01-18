@@ -1,4 +1,6 @@
 class Utils
+	@isWebKit = navigator.userAgent.indexOf('WebKit') != -1
+
 	constructor: () ->
 		return
 
