@@ -14,3 +14,9 @@ class MathUtils
 			for i in [0.._digitCount - 1]
 				_string = "0" + _string
 		return _string
+
+#	数値を渡すと、3桁ごとのカンマ区切りを追加して返します。
+	@addFigure: (str) ->
+		_num = new String(str).replace(/,/g, "")
+		while(_num != (_num = _num.replace(/^(-?\d+)(\d{3})/, "$1,$2")))
+		return _num
