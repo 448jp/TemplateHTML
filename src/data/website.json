@@ -1,0 +1,17 @@
+{
+	"title": "My title",
+	"meta": {
+		"description": "My description.",
+		"keywords": "my,keyword"
+	},
+	"ogp": {
+		"type": "website",
+		"url": "http://www.example.com/",
+		"imageUrl": "http://www.example.com/images/ogp.jpg",
+		"title": "My ogp title",
+		"description": "My ogp description"
+	},
+	"facebook": {
+		"appId": ""
+	}
+}
