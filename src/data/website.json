@@ -2,7 +2,11 @@
 	"title": "My title",
 	"meta": {
 		"description": "My description.",
-		"keywords": "my,keyword"
+		"keywords": "my,keyword",
+		"viewport": {
+			"type": "fixed",
+			"width": 980
+		}
 	},
 	"ogp": {
 		"type": "website",
