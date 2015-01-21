@@ -4,7 +4,7 @@
 		"description": "My description.",
 		"keywords": "my,keyword",
 		"viewport": {
-			"type": "fixed",
+		  "type": "liquid",
 			"width": 980
 		}
 	},
