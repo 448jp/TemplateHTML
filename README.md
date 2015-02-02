@@ -20,8 +20,3 @@ npm install
 ```
 bower install
 ```
-
-TODO
-----
--スマホ用にviewportを追記
-
