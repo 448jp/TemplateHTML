@@ -9,6 +9,7 @@
 		}
 	},
 	"ogp": {
+		"siteName": "My ogp website title",
 		"type": "website",
 		"url": "http://www.example.com/",
 		"imageUrl": "http://www.example.com/images/ogp.jpg",
