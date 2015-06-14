@@ -18,5 +18,8 @@
 	},
 	"facebook": {
 		"appId": ""
+	},
+	"link": {
+		"appleTouchIcon": false
 	}
 }
