@@ -20,7 +20,7 @@ module.exports = (grunt) ->
 		return ["compass:dev_pc"]
 
 	coffee: (filepath) ->
-		return ["coffee:dev_pc", "uglify:dev_pc"]
+		return ["browserify:dev_pc"]
 
 	js: (filepath) ->
 		return
