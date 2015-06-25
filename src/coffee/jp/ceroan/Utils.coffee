@@ -21,6 +21,14 @@ class Utils
 			_isIOs = true
 		return _isIOs
 
+	@detectAndroid2: () ->
+		_ua = navigator.userAgent.toLowerCase()
+		_match = _ua.match(/android\s+([.0-9]+)/)
+		if _match && _match[1].match(/^2\./)
+			return true
+		return false
+
+
 	@computeDuration: (ms) ->
 		h = String(Math.floor(ms / 3600000) + 100).substring(1)
 		m = String(Math.floor((ms - h * 3600000)/60000)+ 100).substring(1)
@@ -38,3 +46,5 @@ class Utils
 		while (match = search.exec(query))
 			urlParams[decode(match[1])] = decode(match[2])
 		return urlParams
+
+module.exports = Utils

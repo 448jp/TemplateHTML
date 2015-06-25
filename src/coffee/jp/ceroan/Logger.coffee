@@ -1,4 +1,6 @@
-class Logger
+Config = require("./Config")
+
+module.exports = class Logger
 #	すべてのログを出力
 	@LOG_VERBOSE: 0
 #	ログを出力しない
