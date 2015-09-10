@@ -1,4 +1,7 @@
-class JsonUtils
+module.exports = class JsonUtils
+	constructor: () ->
+
+
 	###*
     * JSONをソートするための関数です。JSON.sort()の引数に渡して使います。例：json.sort(JsonUtils.sort_by("index", false, parseInt))
     * @param {Object} field ソートの基準にするプロパティ

@@ -1,4 +1,4 @@
-class ImageLoader
+module.exports = class ImageLoader
 	constructor: () ->
 		return
 

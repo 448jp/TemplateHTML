@@ -1,4 +1,7 @@
-class MathUtils
+module.exports = class MathUtils
+	constructor: () ->
+
+
 	@randomRange: (minNum, maxNum, args...) ->
 		if (args[0] == 0)
 			_randomNum = Math.random() * (maxNum - minNum) + minNum
