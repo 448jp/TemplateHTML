@@ -16,13 +16,6 @@ module.exports =
 				]
 			]
 		]
-	libs:
-		options:
-			plugin: []
-		files:
-			"<%= DEV_PC_PATH %><%= JS_DIR %>libs-for-legacy.js": [
-				"<%= DEV_PC_PATH %><%= COFFEE_DIR %>LibsForLegacy.coffee"
-			]
 	dev_pc:
 		files:
 			"<%= DEV_PC_PATH %><%= JS_DIR %>app.js": [
