@@ -19,7 +19,7 @@ module.exports =
 	dev_pc:
 		files:
 			"<%= DEV_PC_PATH %><%= JS_DIR %>app.js": [
-				"<%= DEV_PC_PATH %><%= COFFEE_DIR %>Main.coffee"
+				"<%= DEV_PC_PATH %><%= COFFEE_DIR %>App.coffee"
 			]
 	production_pc:
 		options:
