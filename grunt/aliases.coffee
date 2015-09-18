@@ -4,6 +4,7 @@ module.exports =
 		"assemble"
 		"compass:production_pc"
 		"sass:production_sp"
+		"autoprefixer:production"
 		"coffee"
 		"uglify"
 		"newer:imagemin"

@@ -17,7 +17,7 @@ module.exports = (grunt) ->
 		return ["assemble:dev_pc"]
 
 	scss: (filepath) ->
-		return ["compass:dev_pc"]
+		return ["compass:dev_pc", "autoprefixer:dev"]
 
 	coffee: (filepath) ->
 		return ["browserify:dev_pc"]
