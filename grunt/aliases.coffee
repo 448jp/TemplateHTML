@@ -31,11 +31,6 @@ module.exports =
 		"newer:tinypng:production_sp"
 		"newer:copy:production_sp"
 	]
-	publish_sp_js: [
-		"coffee:dev_sp"
-		"uglify:dev_sp"
-		"copy:production_sp"
-	]
 	publish_fp: [
 		"clean:production_fp"
 		"assemble:dev_fp"

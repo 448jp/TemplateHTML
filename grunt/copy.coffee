@@ -1,14 +1,4 @@
 module.exports =
-	normalize_scss:
-		files: [
-			expand: true
-			flatten: false
-			cwd: "<%= BOWER_COMPONENTS_DIR %>modularized-normalize-scss/"
-			src: [
-				"**/*.scss"
-			]
-			dest: "<%= DEV_PC_PATH %><%= SASS_DIR %>normalize/"
-		]
 	# 画像はimageminでコピーする
 	dev_pc:
 		files: [
