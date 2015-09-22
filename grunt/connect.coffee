@@ -1,26 +1,10 @@
 module.exports =
-	dev_pc:
+	dev:
 		options:
-			base: "dev_pc"
+			base: "<%= DEV_PC_PATH %>"
 			port: 9000
 			livereload: true
-	dev_sp:
-		options:
-			base: "dev_sp"
-			port: 9000
-	dev_fp:
-		options:
-			base: "dev_fp"
-			port: 9000
-	production_pc:
+	production:
 		options:
 			base: "production/"
-			port: 9000
-	production_sp:
-		options:
-			base: "production/sp/"
-			port: 9000
-	production_fp:
-		options:
-			base: "production/fp/"
 			port: 9000
