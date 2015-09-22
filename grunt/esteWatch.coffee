@@ -18,6 +18,9 @@ module.exports = (grunt) ->
 		grunt.config ["assemble", "dev_pc", "files"]
 		return ["assemble:dev_pc"]
 
+	json: (filepath) ->
+		return ["assemble:dev_pc"]
+
 	scss: (filepath) ->
 		return ["sass:dev_pc", "autoprefixer:dev"]
 
