@@ -19,6 +19,7 @@ module.exports =
 			force: true
 			style: "compressed"
 			debugInfo: false
+			sourcemap: "none"
 		files:
 			"<%= DEV_PC_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_PC_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
 	production_sp:
@@ -26,5 +27,6 @@ module.exports =
 			force: true
 			style: "compressed"
 			debugInfo: false
+			sourcemap: "none"
 		files:
 			"<%= DEV_SP_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_SP_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
