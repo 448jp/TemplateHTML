@@ -15,6 +15,8 @@ module.exports = function(grunt) {
 
 			// ディレクトリ名
 			HANDLEBARS_DIR: "hbs/",
+			HANDLEBARS_PARTIAL_DIR: "_includes/",
+			HANDLEBARS_LAYOUTS_DIR: "_layouts/",
 			HANDLEBARS_DATA_DIR: "data/",
 			JEKYLL_DIR: "jekyll/",
 			LIB_DIR: "libs/",
