@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "create": "npm update -g npm && npm-check-updates -u && npm update -g bower && bower update",
     "postinstall": "bower install",
     "start": "grunt watch",
     "test": "echo \"Error: no test specified\" && exit 1"
