@@ -5,7 +5,6 @@ module.exports =
 			# nested (default), expanded, compact, compressed
 			style: "nested"
 			debugInfo: false
-			compass: true
 		files:
 			"<%= DEV_PC_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_PC_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
 	dev_sp:
@@ -13,7 +12,6 @@ module.exports =
 			force: true
 			style: "nested"
 			debugInfo: false
-			compass: true
 		files:
 			"<%= DEV_SP_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_SP_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
 	production_pc:
@@ -21,7 +19,6 @@ module.exports =
 			force: true
 			style: "compressed"
 			debugInfo: false
-			compass: true
 		files:
 			"<%= DEV_PC_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_PC_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
 	production_sp:
@@ -29,6 +26,5 @@ module.exports =
 			force: true
 			style: "compressed"
 			debugInfo: false
-			compass: true
 		files:
 			"<%= DEV_SP_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_SP_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
