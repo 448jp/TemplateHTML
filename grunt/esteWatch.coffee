@@ -1,12 +1,14 @@
 module.exports = (grunt) ->
 	options:
 		dirs: [
-			"<%= DEV_PC_PATH %>**/"
-			"!<%= DEV_PC_PATH %>fla/**/"
-			"!<%= DEV_PC_PATH %><%= SCSS_DIR %>parts/"
-			"<%= DEV_SP_PATH %>**/"
-			"!<%= DEV_SP_PATH %><%= SCSS_DIR %>parts/"
-			"<%= DEV_FP_PATH %>**/"
+			"<%= DEV_PC_PATH %>_includes/"
+			"<%= DEV_PC_PATH %>_layouts/"
+			"<%= DEV_PC_PATH %>coffee/**"
+			"<%= DEV_PC_PATH %>css/"
+			"<%= DEV_PC_PATH %>data/"
+			"<%= DEV_PC_PATH %>js/"
+			"<%= DEV_PC_PATH %>sass/**"
+			"<%= DEV_PC_PATH %>"
 		]
 		livereload:
 			enabled: true
