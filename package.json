@@ -11,6 +11,14 @@
   },
   "author": "OKI Yoshiya <oki@ceroan.jp> (http://ceroan.jp/)",
   "private": true,
+  "browser": {
+    "jquery": "./bower_components/jquery/dist/jquery.min.js",
+    "velocity": "./bower_components/velocity/velocity.min.js",
+    "velocity-ui": "./bower_components/velocity/velocity.ui.min.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  },
   "devDependencies": {
     "assemble": "^0.4.42",
     "browserify": "^10.2.4",
