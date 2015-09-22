@@ -6,8 +6,8 @@ module.exports = function(grunt) {
 			DEV_SP_PATH: "<%= BASE_PATH %>src/sp/",
 			DEV_FP_PATH: "<%= BASE_PATH %>src/fp/",
 			PRODUCTION_PC_PATH: "<%= BASE_PATH %>dist/",
-			PRODUCTION_SP_PATH: "<%= BASE_PATH %>production/sp/",
-			PRODUCTION_FP_PATH: "<%= BASE_PATH %>production/fp/",
+			PRODUCTION_SP_PATH: "<%= BASE_PATH %>dist/sp/",
+			PRODUCTION_FP_PATH: "<%= BASE_PATH %>dist/fp/",
 
 			// プロジェクト設定
 			BOWER_COMPONENTS_DIR: "bower_components/",
