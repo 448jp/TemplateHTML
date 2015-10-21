@@ -3,20 +3,8 @@ TemplateHTML
 
 新規プロジェクトの開始手順
 ------------------------
-1.npmパッケージのアップデート
+1. npmパッケージおよびBowerパッケージのアップデート、インストール
 
 ```
-npm-check-updates -u
-```
-
-2.npmパッケージのインストール
-
-```
-npm install
-```
-
-3.Bowerパッケージのインストール
-
-```
-bower install
+npm run create
 ```
