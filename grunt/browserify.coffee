@@ -30,7 +30,7 @@ module.exports =
 			]
 		files:
 			"<%= PRODUCTION_PC_PATH %><%= JS_DIR %>app.js": [
-				"<%= DEV_PC_PATH %><%= COFFEE_DIR %>**/*.coffee"
+				"<%= DEV_PC_PATH %><%= COFFEE_DIR %>App.coffee"
 			]
 	dev_sp:
 		options:

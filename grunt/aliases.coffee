@@ -2,12 +2,9 @@ module.exports =
 	default: [
 		"clean"
 		"assemble"
-		"compass:production_pc"
-		"sass:production_sp"
+		"sass:production_pc"
 		"autoprefixer:production"
-		"coffee"
-		"uglify"
-		"newer:imagemin"
+		"browserify:production_pc"
 		"copy"
 	]
 	publish_pc: [
