@@ -3,6 +3,7 @@
     "create": "ncu -u -a && ncu -m bower -u && npm install",
     "postinstall": "bower install",
     "start": "grunt watch",
+    "build": "grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
