@@ -21,6 +21,9 @@ module.exports = (grunt) ->
 	json: (filepath) ->
 		return ["assemble:dev_pc"]
 
+	sass: (filepath) ->
+		return ["sass:dev_pc", "autoprefixer:dev"]
+
 	scss: (filepath) ->
 		return ["sass:dev_pc", "autoprefixer:dev"]
 
