@@ -35,8 +35,8 @@ module.exports =
 		"utf8tosjis:dev_fp"
 		"copy:production_fp"
 	]
-	watch_dev_pc: [
-		"connect:dev_pc"
+	watch: [
+		"connect:dev"
 		"esteWatch"
 	]
 	watch_dev_sp: [
