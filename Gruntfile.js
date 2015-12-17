@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 			SWF_DIR: "swf/",
 			MEDIA_DIR: "media/",
 
-			SASS_FILENAME: "screen.scss",
+			SASS_FILENAME: "screen.sass",
 			CSS_FILENAME: "screen.css"
 		},
 		loadGruntTasks: {
