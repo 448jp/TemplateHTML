@@ -36,7 +36,7 @@ module.exports =
 		"copy:production_fp"
 	]
 	watch: [
-		"connect:dev"
+		"browserSync:dev"
 		"esteWatch"
 	]
 	watch_dev_sp: [

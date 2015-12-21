@@ -11,8 +11,7 @@ module.exports = (grunt) ->
 			"<%= DEV_PC_PATH %>"
 		]
 		livereload:
-			enabled: true
-			extensions: ["html", "css", "js"]
+			enabled: false
 
 	hbs: (filepath) ->
 		grunt.config ["assemble", "dev_pc", "files"]
