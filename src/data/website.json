@@ -17,6 +17,7 @@
 		"description": "My ogp description"
 	},
 	"facebook": {
+		"admins": "",
 		"appId": ""
 	},
 	"mixi": {
