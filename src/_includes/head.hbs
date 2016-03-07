@@ -5,6 +5,7 @@
 <meta name="keywords" content="{{website.meta.keywords}}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="format-detection" content="telephone=no">
+{{#is website.ogp.enabled true~}}
 <meta property="fb:admins" content="{{website.facebook.admins}}">
 <meta property="fb:app_id" content="{{website.facebook.appId}}">
 <meta property="og:site_name" content="{{website.ogp.siteName}}">
@@ -13,10 +14,13 @@
 <meta property="og:image" content="{{website.ogp.imageUrl}}">
 <meta property="og:title" content="{{website.ogp.title}}">
 <meta property="og:description" content="{{website.ogp.description}}">
+{{/is~}}
+{{#is website.twitter.enabled true~}}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{website.ogp.title}}">
-<meta name="twitter:description" content="{{website.ogp.description}}">
-<meta name="twitter:image:src" content="{{website.ogp.imageUrl}}">
+<meta name="twitter:title" content="{{website.twitter.title}}">
+<meta name="twitter:description" content="{{website.twitter.description}}">
+<meta name="twitter:image:src" content="{{website.twitter.imageUrl}}">
+{{/is~}}
 {{> head_mixi~}}
 
 <link rel="shortcut icon" href="/favicon.ico">

@@ -9,6 +9,7 @@
 		}
 	},
 	"ogp": {
+		"enabled": true,
 		"siteName": "My ogp website title",
 		"type": "website",
 		"url": "http://www.example.com/",
@@ -19,6 +20,12 @@
 	"facebook": {
 		"admins": "",
 		"appId": ""
+	},
+	"twitter": {
+		"enabled": true,
+		"imageUrl": "http://www.example.com/images/twitter.jpg",
+		"title": "My twitter card title",
+		"description": "My twitter card description"
 	},
 	"mixi": {
 		"content-rating": false
