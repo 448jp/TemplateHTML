@@ -1,4 +1,4 @@
-Config = require("./Config")
+Config = require("../Config")
 
 module.exports = class Logger
 #	すべてのログを出力
@@ -8,7 +8,7 @@ module.exports = class Logger
 #	エラーの時だけログを出力
 	@LOG_ERRORS: 4
 #	ログレベル
-	@logLevel: Logger.LOG_VERBOSE
+	@logLevel: Logger.LOG_SILENT
 
 	@log: (log, level = 0) ->
 		if @logLevel <= level && Config.debugMode
