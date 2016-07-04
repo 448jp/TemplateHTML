@@ -16,8 +16,11 @@
     "tests"
   ],
   "dependencies": {
-    "modularized-normalize-scss": "~3.0.1",
     "jquery": "1.11.1",
-    "velocity": "~1.1.0"
+    "velocity": "1.2.3",
+    "EaselJS": "^0.8.2",
+    "PreloadJS": "^0.6.2",
+    "normalize-css": "normalize.css#~4.1.1",
+    "scrollmagic": "ScrollMagic#~2.0.5"
   }
 }
