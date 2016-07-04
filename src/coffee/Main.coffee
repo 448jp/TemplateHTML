@@ -1,3 +1,5 @@
-module.exports = class Main
+class Main
 	constructor: () ->
 		return
+
+module.exports = Main
