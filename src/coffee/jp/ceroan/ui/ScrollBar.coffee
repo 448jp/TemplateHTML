@@ -1,5 +1,4 @@
 require("EaselJS")
-Root = require("../Root")
 Event = require("../events/Event")
 EventDispatcher = require("../events/EventDispatcher")
 
@@ -19,9 +18,11 @@ class ScrollBar extends EventDispatcher
 		# コンテンツ量に応じて伸縮するスライダーを使用する場合、スライダーの最小サイズをピクセル値で設定
 		@minSliderHeight = 10
 		# アローボタンを1回クリックしたときのスクロール量
-		@arrowScrollAmount = 10
+		@arrowScrollAmount = 48
 		# マウスホイールが有効化どうか
 		@useMouseWheel = true
+		# コンテンツ量に応じて伸縮するスライダーを使用するかどうかを設定します。
+		@useFlexibleSlider = true
 		# スライダーの高さを常に0として扱うかどうか
 		@useIgnoreSliderHeight = false
 
@@ -55,10 +56,20 @@ class ScrollBar extends EventDispatcher
 		@resizeSlider()
 
 		# コンテンツの位置補正
-		if ((@upperBound - @property) / (@upperBound - @lowerBound) > 1)
+		if ((@upperBound - @content[@key]) / (@upperBound - @lowerBound) > 1)
 #			_terminateScrollFlag = true
 			@targetScroll = @lowerBound
-			@property = @lowerBound
+			@content[@key] = @lowerBound
+
+	# コンテンツ量に応じて伸縮するスライダーを使用するかどうかを設定します。
+	setUseFlexibleSlider: (value) =>
+		@useFlexibleSlider = value
+		@resizeSlider()
+
+	# スライダーの高さを常に0として扱うかどうかを設定します。
+	setUseIgnoreSliderHeight: (value) =>
+		@useIgnoreSliderHeight = value
+		@resizeSlider()
 
 	# 初期化
 	setup: (content, key, contentSize, maskSize, upperBound, lowerBound) =>
@@ -134,19 +145,18 @@ class ScrollBar extends EventDispatcher
 			return
 
 #		//スライダーの高さ0として扱う
-		if (@useIgnoreSliderHeight)
+		if @useIgnoreSliderHeight
 			@slider.scaleY = 1
 			@sliderHeight = 0
 			@updateSlider()
 			return
 
 #		//バーを伸縮させない場合
-#		if (!_useFlexibleSlider) {
-#			_slider.scaleY = 1;
-#			_sliderHeight = _slider.height;
-#			_updateSlider();
-#			return;
-#		}
+		if !@useFlexibleSlider
+			@slider.scaleY = 1
+			@sliderHeight = @slider.getBounds().height
+			@updateSlider()
+			return
 
 		if (!@base)
 			return
@@ -284,6 +294,10 @@ class ScrollBar extends EventDispatcher
 	scrollByExternal: (event) =>
 		_mouseWheelHandler.call @, event
 
+	# 外部（指）からスクロールを実行する関数です。
+	scrollByFinger: (event) =>
+		_panHandler.call @, event
+
 	# スクロール処理を開始します。
 	_startScroll = () ->
 #		if (_usePixelFittingContent)
@@ -345,7 +359,7 @@ class ScrollBar extends EventDispatcher
 					_sliderButtonMouseDownHandler.call @, event
 				if (@stage)
 					@stage.off("stagemouseup", @stageMouseupListener)
-					@stageMouseupListener = @stage.addEventListener "stagemouseup", (event) =>
+					@stageMouseupListener = @stage.on "stagemouseup", (event) =>
 						_sliderButtonMouseUpHandler.call @, event
 
 				@sliderEnabled(@isReady)
@@ -380,7 +394,7 @@ class ScrollBar extends EventDispatcher
 		@isScrollingByDrag = false
 
 		# マウス座標
-		_point = @base.globalToLocal(Root.stage.mouseX, Root.stage.mouseY)
+		_point = @base.globalToLocal(@stage.mouseX, @stage.mouseY)
 		_mousePosition = @base.scaleY * _point.y
 
 		if (@slider && !@useIgnoreSliderHeight)
@@ -431,7 +445,7 @@ class ScrollBar extends EventDispatcher
 		@isDragging = true
 
 		@sliderDragStartY = @slider.y
-		@sliderDragStartMouseY = Root.stage.mouseY
+		@sliderDragStartMouseY = @stage.mouseX
 
 		@moveSliderListener = @stage.on "stagemousemove", (event) =>
 			_moveSliderHandler.call @, event
@@ -441,7 +455,7 @@ class ScrollBar extends EventDispatcher
 		@isScrollingByDrag = true
 
 		# スライダーの移動
-		@slider.y = @sliderDragStartY + Root.stage.mouseY - @sliderDragStartMouseY
+		@slider.y = @sliderDragStartY + @stage.mouseX - @sliderDragStartMouseY
 		# スライダーの移動区域制限
 		_boundHeight = if (@useIgnoreSliderHeight) then @base.getBounds().height else (@base.getBounds().height - @slider.getBounds().height)
 		@slider.y = if (@slider.y < @base.y) then @base.y else if (@slider.y > _boundHeight) then _boundHeight else @slider.y
@@ -488,5 +502,36 @@ class ScrollBar extends EventDispatcher
 				@scrollByRelativeRatio(-@arrowScrollAmount, true)
 			else
 				@scrollByRelativePixel(-@arrowScrollAmount, true)
+
+	# パン操作時に呼び出されるイベントハンドラです。
+	_panHandler = (event) ->
+		if !@isReady || !@useMouseWheel || event.deltaY == 0
+			return
+
+		# 目標値が端に到達している状態での，さらに外側にスクロールしようとする動作を無効化する
+		#		if (!_useOvershoot)
+		#			if ( (_targetScroll == _upperBound && e.delta > 0) ||
+		#				(_targetScroll == _lowerBound && e.delta < 0) ) return;
+		#		}
+
+		# オートスクロールの中断
+		#		if (_useAutoScrollCancelable) stopAutoScroll();
+
+		# ユーザーアクションによるスクロールであることを示す
+		@isScrollingByUser = true
+
+		# ドラッグ以外のスクロールであることを示す
+		@isScrollingByDrag = false
+
+		if event.velocityX < 0
+			if @useArrowScrollUsingRatio
+				@scrollByRelativeRatio(-@arrowScrollAmount, true)
+			else
+				@scrollByRelativePixel(-@arrowScrollAmount, true)
+		else
+			if @useArrowScrollUsingRatio
+				@scrollByRelativeRatio(@arrowScrollAmount, true)
+			else
+				@scrollByRelativePixel(@arrowScrollAmount, true)
 
 module.exports = ScrollBar
