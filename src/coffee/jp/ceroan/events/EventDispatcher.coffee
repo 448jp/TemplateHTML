@@ -1,6 +1,6 @@
 Event = require("./Event")
 
-module.exports = class EventDispatcher
+class EventDispatcher
 
 	constructor: (target = null) ->
 		@_target = target ? @
@@ -34,3 +34,5 @@ module.exports = class EventDispatcher
 		for l in @_listeners[type]
 			l.call(@_target, event)
 		@
+
+module.exports = EventDispatcher
