@@ -3,6 +3,7 @@ module.exports =
 		options:
 			watchTask: true
 			server: "<%= DEV_PC_PATH %>"
+			open: false
 		bsFiles:
 			src: [
 				"<%= DEV_PC_PATH %>**/*.html"

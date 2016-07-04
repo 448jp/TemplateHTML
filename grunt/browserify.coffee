@@ -16,13 +16,41 @@ module.exports =
 				]
 			]
 		]
+	local:
+		options:
+			transform: [
+				"coffeeify"
+				"browserify-shim"
+				["envify"
+					NODE_ENV: "local"
+				]
+			]
+		files:
+			"<%= DEV_PC_PATH %><%= JS_DIR %>app.js": [
+				"<%= DEV_PC_PATH %><%= COFFEE_DIR %>App.coffee"
+			]
 	dev_pc:
+		options:
+			transform: [
+				"coffeeify"
+				"browserify-shim"
+				["envify"
+					NODE_ENV: "development"
+				]
+			]
 		files:
 			"<%= DEV_PC_PATH %><%= JS_DIR %>app.js": [
 				"<%= DEV_PC_PATH %><%= COFFEE_DIR %>App.coffee"
 			]
 	production_pc:
 		options:
+			transform: [
+				"coffeeify"
+				"browserify-shim"
+				["envify"
+					NODE_ENV: "production"
+				]
+			]
 			plugin: [
 				["minifyify",
 					map: false

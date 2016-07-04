@@ -21,7 +21,7 @@ module.exports =
 			debugInfo: false
 			sourcemap: "none"
 		files:
-			"<%= DEV_PC_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_PC_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
+			"<%= PRODUCTION_PC_PATH %><%= CSS_DIR %><%= CSS_FILENAME %>": "<%= DEV_PC_PATH %><%= SASS_DIR %><%= SASS_FILENAME %>"
 	production_sp:
 		options:
 			force: true

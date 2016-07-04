@@ -21,13 +21,16 @@ module.exports = (grunt) ->
 		return ["assemble:dev_pc"]
 
 	sass: (filepath) ->
-		return ["sass:dev_pc", "autoprefixer:dev"]
+		return ["sass:dev_pc", "autoprefixer:dev", "concat:css"]
 
 	scss: (filepath) ->
-		return ["sass:dev_pc", "autoprefixer:dev"]
+		return ["sass:dev_pc", "autoprefixer:dev", "concat:css"]
 
 	coffee: (filepath) ->
-		return ["browserify:dev_pc"]
+		if grunt.option("env") != "local"
+			return ["browserify:dev_pc"]
+		else
+			return ["browserify:local"]
 
 	js: (filepath) ->
 		return

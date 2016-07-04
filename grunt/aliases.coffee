@@ -3,8 +3,8 @@ module.exports =
 		"clean"
 		"assemble"
 		"sass:production_pc"
-		"sass:production_sp"
 		"autoprefixer:production"
+		"concat:css_production"
 		"browserify:production_pc"
 		"copy"
 	]

@@ -1,4 +1,4 @@
-module.exports = (grunt) ->
+module.exports =
 	dev_pc:
 		options:
 			assets: "<%= DEV_PC_PATH %>"
@@ -6,6 +6,7 @@ module.exports = (grunt) ->
 			layoutdir: "<%= DEV_PC_PATH %>_layouts/"
 			data: "<%= DEV_PC_PATH %><%= HANDLEBARS_DATA_DIR %>website.json"
 			ext: ".html"
+			helpers: ["encodeURI"]
 		files: [
 			expand: true
 			cwd: "<%= DEV_PC_PATH %>"
