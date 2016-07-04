@@ -13,8 +13,21 @@ class Utils
 				_isMobile = true
 		return _isMobile
 
+	@detectIe: () ->
+		_ua = navigator.userAgent.toLowerCase()
+		_isIe = false
+		if _ua.indexOf("msie") != -1 || _ua.indexOf("trident/7.0") != -1
+			_isIe = true
+		return _isIe
+
+	@detectSafari: () ->
+		_ua = navigator.userAgent.toLowerCase()
+		_isSafari = false
+		if _ua.indexOf("safari") != -1 && _ua.indexOf("chrome") == -1
+			_isSafari = true
+		return _isSafari
+
 	@detectIOs: () ->
-		@detectIOs()
 		_ua = navigator.userAgent.toLowerCase()
 		_isIOs = false
 		if _ua.indexOf("ipod") != -1 || _ua.indexOf("iphone") != -1 || _ua.indexOf("ipad") != -1
