@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 setTimeout(function () {
 	var hoge = arguments.length <= 0 || arguments[0] === undefined ? "ほげ" : arguments[0];

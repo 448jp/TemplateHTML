@@ -16,10 +16,23 @@ let options = minimist(process.argv.slice(2), {
 // 共通設定
 // 出力先ディレクトリの判定
 let sourceDir = 'src/';
-let destDir = !options.isProduction ? sourceDir : 'dist/';
+let distDir = 'dist/';
+let destDir = !options.isProduction ? sourceDir : distDir;
 let config = {
 	// 出力先ディレクトリ
 	destDir: `${destDir}`,
+	// ソースディレクトリ
+	sourceDir: sourceDir,
+	// ビルド先ディレクトリ
+	distDir: distDir,
+	// Handlebarsディレクトリ
+	hbsDir: `${sourceDir}**`,
+	// Handlebarsデータディレクトリ
+	handlebarsDataDir: `${sourceDir}data/`,
+	// Handlebarsパーシャルディレクトリ
+	partialsDir: `${sourceDir}_includes/`,
+	// Handlebarsレイアウトディレクトリ
+	layoutsDir: `${sourceDir}_layouts/`,
 	// CSSディレクトリ
 	cssDir: `${destDir}css/`,
 	// CSSファイル名

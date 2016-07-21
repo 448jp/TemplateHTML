@@ -7,6 +7,6 @@ const del = require('del');
 // ビルドディレクトリを削除します。
 gulp.task('clean', () => {
 	return del([
-		config.destDir
+		config.distDir
 	]);
 });

@@ -8,7 +8,6 @@ const concat = require("gulp-concat");
 
 // Sassをコンパイルします。
 gulp.task('sass', () => {
-	console.log(config);
 	return gulp.src(`${config.sassDir}${config.cssFilename}.sass`)
 		.pipe(sass())
 		.pipe(autoprefixer({
