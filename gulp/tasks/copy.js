@@ -12,9 +12,12 @@ gulp.task('copy', () => {
 		`!${config.sourceDir}_layouts{,/**}`,
 		`!${config.sourceDir}coffee{,/**}`,
 		`!${config.sourceDir}data{,/**}`,
+		`!${config.sourceDir}js{,/**}`,
 		`!${config.sourceDir}sass{,/**}`,
 		`!${config.sourceDir}*.hbs`
-	])
+	], {
+		nodir: true
+	})
 		.pipe(gulp.dest(config.distDir))
 		.pipe(size({
 			title: "copy"

@@ -8,20 +8,21 @@ const browserSync = require("browser-sync").create();
 gulp.task('watch', ['server'], () => {
 	// Assemble
 	gulp.watch(`${config.hbsDir}*.hbs`, ['assemble']);
-	gulp.watch(`${config.hbsDir}*.html`).on('change', browserSync.reload);
+	gulp.watch(`${config.partialsDir}*.hbs`, ['assemble']);
+	gulp.watch(`${config.distDir}*.html`).on('change', browserSync.reload);
 	// Sass
 	gulp.watch(`${config.sassDir}**`, ['sass']);
-	gulp.watch(`${config.cssDir}*.css`).on('change', browserSync.reload);
+	gulp.watch(`${config.distDir}css/*.css`).on('change', browserSync.reload);
 	// JavaScript
-	gulp.watch(`${config.jsDir}**`, ['babel']);
-	gulp.watch(`${config.jsDir}*.js`).on('change', browserSync.reload);
+	gulp.watch(`${config.jsSourceDir}**`, ['babel']);
+	gulp.watch(`${config.distDir}js/*.js`).on('change', browserSync.reload);
 });
 
 // ローカルサーバーを起動します。
 gulp.task('server', () => {
 	browserSync.init({
 		server: {
-			baseDir: config.sourceDir
+			baseDir: config.distDir
 		},
 		open: false
 	});

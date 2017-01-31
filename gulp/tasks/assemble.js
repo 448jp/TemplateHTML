@@ -11,7 +11,7 @@ const app = assemble();
 gulp.task('assemble-load', (callback) => {
 	app.partials(`${config.partialsDir}*.hbs`);
 	app.layouts(`${config.layoutsDir}*.hbs`);
-	app.data(`${config.handlebarsDataDir}website.json`)
+	app.data(`${config.handlebarsDataDir}website.json`);
 	app.pages(`${config.sourceDir}*.hbs`);
 	callback();
 });
@@ -21,5 +21,5 @@ gulp.task('assemble', ['assemble-load'], () => {
 	return app.toStream('pages')
 		.pipe(app.renderFile())
 		.pipe(extname())
-		.pipe(app.dest(config.sourceDir))
+		.pipe(app.dest(config.distDir))
 });

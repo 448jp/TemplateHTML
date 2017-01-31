@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const minimist = require("minimist");
 
@@ -34,13 +34,15 @@ let config = {
 	// Handlebarsレイアウトディレクトリ
 	layoutsDir: `${sourceDir}_layouts/`,
 	// CSSディレクトリ
-	cssDir: `${destDir}css/`,
+	cssDir: `${distDir}css/`,
 	// CSSファイル名
 	cssFilename: 'screen',
 	// Sassディレクトリ
 	sassDir: `${sourceDir}sass/`,
+	// JSソースディレクトリ
+	jsSourceDir: `${sourceDir}js/`,
 	// JSディレクトリ
-	jsDir: `${sourceDir}js/`,
+	jsDir: `${distDir}js/`,
 	// JSファイル名
 	jsFilename: 'App.js'
 };
