@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const config = require('../config').config;
 const browserify = require('browserify');
 const babelify = require('babelify');
+const watchify = require('watchify');
 const plumber = require('gulp-plumber');
 const source = require('vinyl-source-stream');
 
@@ -11,7 +12,10 @@ const source = require('vinyl-source-stream');
 gulp.task('babelify', () => {
 	return browserify({
 		entries: `${config.jsSourceDir}jp/ceroan/${config.jsFilename}`,
-		extensions: [".js"]
+		extensions: [".js"],
+		cache: {},
+		packageCache: {},
+		plugin: [watchify]
 	})
 		.transform(babelify, {
 			presets: ['es2015', 'stage-2']
