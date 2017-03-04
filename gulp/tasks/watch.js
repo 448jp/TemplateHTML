@@ -14,7 +14,7 @@ gulp.task('watch', ['server'], () => {
 	gulp.watch(`${config.sassDir}**`, ['sass']);
 	gulp.watch(`${config.distDir}css/*.css`).on('change', browserSync.reload);
 	// JavaScript
-	gulp.watch(`${config.jsSourceDir}**`, ['babel']);
+	gulp.watch(`${config.jsSourceDir}**`, ['babelify']);
 	gulp.watch(`${config.distDir}js/*.js`).on('change', browserSync.reload);
 });
 
