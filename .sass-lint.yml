@@ -1,0 +1,165 @@
+rules:
+  # インデント
+  indentation:
+    - 0
+    -
+      size: tab
+  # 引用符
+  quotes:
+    - 2
+    # 設定: single / double (default: single)
+    - style: double
+  # 最終行は空行
+  final-newline:
+    - 2
+  # @importのパス設定
+  clean-import-paths:
+    - 2
+    # ファイル名の先頭に_を許可する: true / false (default: false)
+    - leading-underscore: true
+    # 拡張子を付ける: true / false (default: false)
+    - filename-extension: false
+  # CSSコメントを不許可
+  no-css-comments:
+    - 0
+  # IDを不許可
+  no-ids:
+    - 1
+  # ネストの深さ
+  nesting-depth:
+    - 1
+    - max-depth: 3
+  # ルールセットが空
+  no-empty-rulesets:
+    - 1
+  # クラス名のフォーマット
+  class-name-format:
+    - 2
+    -
+      convention: hyphenatedbem
+  # プロパティの並び順
+  property-sort-order:
+    - 2
+    -
+      order:
+        - content
+        - display
+        - flex-direction
+        - justify-content
+        - align-items
+        - flex-wrap
+        - position
+        - top
+        - right
+        - bottom
+        - left
+        - float
+        - clear
+        - box-sizing
+        - background
+        - background-color
+        - background-size
+        - margin
+        - margin-top
+        - margin-right
+        - margin-bottom
+        - margin-left
+        - padding
+        - padding-top
+        - padding-right
+        - padding-bottom
+        - padding-left
+        - border
+        - border-top
+        - border-right
+        - border-bottom
+        - border-left
+        - border-radius
+        - outline
+        - width
+        - min-width
+        - max-width
+        - height
+        - min-height
+        - max-height
+        - font
+        - font-family
+        - -webkit-font-smoothing
+        - -moz-osx-font-smoothing
+        - font-size
+        - font-weight
+        - line-height
+        - text-align
+        - text-decoration
+        - color
+        - vertical-align
+        - overflow
+        - visibility
+        - opacity
+        - z-index
+  # 宣言の前のネストを不許可
+  declarations-before-nesting: 2
+  # ブロックの間に空行
+  empty-line-between-blocks:
+    - 2
+    -
+      include: true
+      # 1行のルールセットを許可
+      allow-single-line-rulesets: false
+  # ベンダープレフィックスを不許可
+  no-vendor-prefixes:
+    - 1
+  # 疑似要素はダブルコロン、疑似クラスはシングルコロン
+  pseudo-element:
+    - 2
+  # 疑似要素はネスト
+  force-pseudo-nesting:
+    - 1
+  # 重複するプロパティを不許可
+  no-duplicate-properties:
+    - 2
+    -
+      exclude:
+        - font-size
+  # ショートハンドの値
+  shorthand-values: 2
+  # 値0の単位
+  zero-unit:
+    - 2
+  # 小数点の整数桁に0を許可
+  leading-zero:
+    - 2
+    -
+      include: true
+  # borderの値
+  border-zero: 2
+  # 16進数の長さ
+  hex-length:
+    - 2
+    -
+      style: long
+  # 16進数のフォーマット
+  hex-notation:
+    - 2
+    -
+      style: lowercase
+  # カラーリテラルを不許可
+  no-color-literals:
+    - 2
+  # カラーキーワードを不許可
+  no-color-keywords:
+    - 2
+  # 変数名のフォーマット
+  variable-name-format:
+    - 2
+    -
+      allow-leading-underscore: false
+      convention: camelcase
+  # mixin名のフォーマット
+  mixin-name-format:
+    - 2
+    -
+      convention: camelcase
+  # 宣言前のmixin
+  mixins-before-declarations:
+    - 0
