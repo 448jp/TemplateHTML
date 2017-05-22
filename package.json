@@ -5,11 +5,20 @@
     "build": "gulp --isProduction true",
     "start": "gulp watch",
     "watch": "gulp watch",
+    "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "https://448jp@bitbucket.org/448jp/project.git"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
+  "lint-staged": {
+    "*.@(sass)": [
+      "sass-lint -v -q"
+    ]
   },
   "author": "OKI Yoshiya <oki@ceroan.jp> (http://ceroan.jp/)",
   "private": true,
@@ -40,9 +49,12 @@
     "gulp-size": "^2.0.0",
     "handlebars": "^4.0.6",
     "handlebars-helpers": "^0.8.2",
+    "lint-staged": "^3.4.2",
     "minimist": "^1.2.0",
+    "pre-commit": "^1.2.2",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
+    "sass-lint": "^1.10.2",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
   }
