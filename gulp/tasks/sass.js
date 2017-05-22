@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const config = require('../config').config;
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const sassLint = require("gulp-sass-lint");
 const concat = require("gulp-concat");
 
 // Sassをコンパイルします。
@@ -16,6 +17,15 @@ gulp.task('sass', () => {
 			cascade: false
 		}))
 		.pipe(gulp.dest(config.cssDir));
+});
+
+// Sassをsass-lintします。
+gulp.task("sassLint", () => {
+	return gulp.src(`${config.sassDir}**/*.sass`)
+		.pipe(sassLint({
+			configFile: ".sass-lint.yml"
+		}))
+		.pipe(sassLint.format());
 });
 
 // Normalize.cssとCSSを結合します。
