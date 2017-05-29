@@ -1,22 +1,24 @@
-'use strict';
+"use strict";
 
-const gulp = require('gulp');
-const config = require('../config').config;
-const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
+const gulp = require("gulp");
+const config = require("../config").config;
+const sass = require("gulp-sass");
+const autoprefixer = require("gulp-autoprefixer");
 const sassLint = require("gulp-sass-lint");
 const concat = require("gulp-concat");
+const browserSync = require("browser-sync").create();
 
 // Sassをコンパイルします。
-gulp.task('sass', () => {
+gulp.task("sass", () => {
 	return gulp.src(`${config.sassDir}${config.cssFilename}.sass`)
 		.pipe(sass())
 		.pipe(autoprefixer({
 			// see: https://github.com/ai/browserslist#queries
-			browsers: ['last 2 versions', 'IE >= 9'],
+			browsers: ["last 2 versions", "IE >= 9"],
 			cascade: false
 		}))
-		.pipe(gulp.dest(config.cssDir));
+		.pipe(gulp.dest(config.cssDir))
+		.pipe(gulp.browserSync.stream());
 });
 
 // Sassをsass-lintします。
@@ -29,9 +31,9 @@ gulp.task("sassLint", () => {
 });
 
 // Normalize.cssとCSSを結合します。
-gulp.task('normalize', () => {
+gulp.task("normalize", () => {
 	return gulp.src([
-			'./node_modules/normalize.css/normalize.css',
+			"./node_modules/normalize.css/normalize.css",
 			`${config.cssDir}${config.cssFilename}.css`
 		])
 		.pipe(concat(`${config.cssFilename}.css`))
