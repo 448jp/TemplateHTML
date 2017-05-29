@@ -26,6 +26,9 @@ gulp.task("server", () => {
 		server: {
 			baseDir: config.distDir
 		},
-		open: false
+		// 自動的に開く: true / local / external / ui / ui-external / tunnel / false
+		open: false,
+		// 通知ポップアップ: true / false (default: false)
+		notify: false
 	});
 });
