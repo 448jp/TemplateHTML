@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const minimist = require("minimist");
 
@@ -15,8 +15,8 @@ let options = minimist(process.argv.slice(2), {
 
 // 共通設定
 // 出力先ディレクトリの判定
-let sourceDir = 'src/';
-let distDir = 'dist/';
+let sourceDir = "src/";
+let distDir = "dist/";
 let destDir = !options.isProduction ? sourceDir : distDir;
 let config = {
 	// 出力先ディレクトリ
@@ -25,26 +25,44 @@ let config = {
 	sourceDir: sourceDir,
 	// ビルド先ディレクトリ
 	distDir: distDir,
+
+	// ディレクトリ名
+
 	// Handlebarsディレクトリ
-	hbsDir: `${sourceDir}**`,
+	handlebarsDir: `${sourceDir}**`,
+	// Handlebarsパーシャルディレクトリ
+	handlebarsPartialsDir: `${sourceDir}_includes/`,
+	// Handlebarsレイアウトディレクトリ
+	handlebarsLayoutsDir: `${sourceDir}_layouts/`,
 	// Handlebarsデータディレクトリ
 	handlebarsDataDir: `${sourceDir}data/`,
-	// Handlebarsパーシャルディレクトリ
-	partialsDir: `${sourceDir}_includes/`,
-	// Handlebarsレイアウトディレクトリ
-	layoutsDir: `${sourceDir}_layouts/`,
+
 	// CSSディレクトリ
 	cssDir: `${distDir}css/`,
-	// CSSファイル名
-	cssFilename: 'screen',
 	// Sassディレクトリ
 	sassDir: `${sourceDir}sass/`,
+
+	// 画像ディレクトリ
+	imagesDir: `images/`,
+
 	// JSソースディレクトリ
 	jsSourceDir: `${sourceDir}js/`,
 	// JSディレクトリ
 	jsDir: `${distDir}js/`,
+
+	// フォントディレクトリ
+	fontsDir: "fonts/",
+	// PDFディレクトリ
+	pdfDir: "pdf/",
+	// メディアディレクトリ
+	mediaDir: "media/"
+
+	// ファイル名
+
+	// CSSファイル名
+	cssFilename: "screen",
 	// JSファイル名
-	jsFilename: 'App.js'
+	jsFilename: "App.js"
 };
 
 module.exports = {

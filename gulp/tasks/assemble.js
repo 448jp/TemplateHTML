@@ -9,8 +9,8 @@ const app = assemble();
 
 // Handlebars関連ファイルを読み込みます。
 gulp.task('assemble-load', (callback) => {
-	app.partials(`${config.partialsDir}*.hbs`);
-	app.layouts(`${config.layoutsDir}*.hbs`);
+	app.partials(`${config.handlebarsPartialsDir}*.hbs`);
+	app.layouts(`${config.handlebarsLayoutsDir}*.hbs`);
 	app.data(`${config.handlebarsDataDir}website.json`);
 	app.pages(`${config.sourceDir}*.hbs`);
 	callback();
