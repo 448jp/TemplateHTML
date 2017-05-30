@@ -55,7 +55,7 @@ let config = {
 	// PDFディレクトリ
 	pdfDir: "pdf/",
 	// メディアディレクトリ
-	mediaDir: "media/"
+	mediaDir: "media/",
 
 	// ファイル名
 
