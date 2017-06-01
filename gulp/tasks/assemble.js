@@ -8,12 +8,12 @@ const extname = require('gulp-extname');
 const app = assemble();
 
 // Handlebars関連ファイルを読み込みます。
-gulp.task('assemble-load', (callback) => {
+gulp.task('assemble-load', (done) => {
 	app.partials(`${config.handlebarsPartialsDir}*.hbs`);
 	app.layouts(`${config.handlebarsLayoutsDir}*.hbs`);
 	app.data(`${config.handlebarsDataDir}website.json`);
 	app.pages(`${config.sourceDir}*.hbs`);
-	callback();
+	done();
 });
 
 // assembleをコンパイルします。

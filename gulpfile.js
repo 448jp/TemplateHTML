@@ -8,6 +8,6 @@ const runSequence = require("run-sequence");
 requireDir('./gulp/tasks', {recurse: true});
 
 // デフォルトタスク
-gulp.task('default', (callback) => {
-	runSequence('clean', ['assemble', 'sass', 'babelify'], "sassLint", 'copy', callback);
+gulp.task('default', (done) => {
+	runSequence('clean', ['assemble', 'sass', 'babelify'], "sassLint", 'copy', done);
 });
