@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
-const gulp = require('gulp');
-const config = require('../config').config;
-const browserify = require('browserify');
-const babelify = require('babelify');
-const watchify = require('watchify');
-const plumber = require('gulp-plumber');
-const source = require('vinyl-source-stream');
+const gulp = require("gulp");
+const config = require("../config").config;
+const browserify = require("browserify");
+const babelify = require("babelify");
+const watchify = require("watchify");
+const plumber = require("gulp-plumber");
+const source = require("vinyl-source-stream");
 
 // browserify実行時のデフォルトオプション
 const browserifyOptions = {
@@ -15,25 +15,25 @@ const browserifyOptions = {
 };
 // babelify実行時のデフォルトオプション
 const babelifyOptions = {
-	presets: ['es2015', 'stage-2']
+	presets: ["es2015", "stage-2"]
 };
 
 function compile(options, done) {
 	browserify(options).transform(babelify, babelifyOptions)
 		.bundle()
-		.on('error', function(error) {
-			this.emit('end');
+		.on("error", function(error) {
+			this.emit("end");
 		})
 		.on("end", () => {
 			done();
 		})
 		.pipe(plumber())
-		.pipe(source('app.js'))
+		.pipe(source("app.js"))
 		.pipe(gulp.dest(config.jsDir));
 }
 
 // browserify + babelifyでJavaScriptをコンパイルします。
-gulp.task('babelify', (done) => {
+gulp.task("babelify", (done) => {
 	compile(browserifyOptions, done);
 });
 

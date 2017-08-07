@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-const gulp = require('gulp');
-const config = require('../config').config;
-const size = require('gulp-size');
+const gulp = require("gulp");
+const config = require("../config").config;
+const size = require("gulp-size");
 
 // ファイルをコピーします。
-gulp.task('copy', () => {
+gulp.task("copy", () => {
 	return gulp.src([
 		`${config.sourceDir}**`,
 		`!${config.sourceDir}_includes{,/**}`,

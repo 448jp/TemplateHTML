@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 
-const gulp = require('gulp');
-const config = require('../config').config;
-const assemble = require('assemble');
-const helpers = require('handlebars-helpers')();
-const extname = require('gulp-extname');
+const gulp = require("gulp");
+const config = require("../config").config;
+const assemble = require("assemble");
+const helpers = require("handlebars-helpers")();
+const extname = require("gulp-extname");
 const app = assemble();
 
 // Handlebars関連ファイルを読み込みます。
-gulp.task('assemble-load', (done) => {
+gulp.task("assemble-load", (done) => {
 	app.partials(`${config.handlebarsPartialsDir}*.hbs`);
 	app.layouts(`${config.handlebarsLayoutsDir}*.hbs`);
 	app.data(`${config.handlebarsDataDir}website.json`);
@@ -17,8 +17,8 @@ gulp.task('assemble-load', (done) => {
 });
 
 // assembleをコンパイルします。
-gulp.task('assemble', ['assemble-load'], () => {
-	return app.toStream('pages')
+gulp.task("assemble", ["assemble-load"], () => {
+	return app.toStream("pages")
 		.pipe(app.renderFile())
 		.pipe(extname())
 		.pipe(app.dest(config.distDir))
