@@ -28,7 +28,7 @@ gulp.task("watch", ["server"], (done) => {
 });
 
 // ローカルサーバーを起動します。
-gulp.task("server", (done) => {
+gulp.task("server", ["default"], (done) => {
 	browserSync.init({
 		server: {
 			baseDir: config.distDir
