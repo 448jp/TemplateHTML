@@ -33,9 +33,9 @@ gulp.task("sassLint", () => {
 // Normalize.cssとCSSを結合します。
 gulp.task("normalize", () => {
 	return gulp.src([
-			"./node_modules/normalize.css/normalize.css",
-			`${config.cssDir}${config.cssFilename}.css`
-		])
+		"./node_modules/normalize.css/normalize.css",
+		`${config.cssDir}${config.cssFilename}.css`
+	])
 		.pipe(concat(`${config.cssFilename}.css`))
 		.pipe(gulp.dest(config.cssDir))
 });
