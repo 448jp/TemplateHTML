@@ -36,7 +36,23 @@ gulp.task("server", ["default"], (done) => {
 		// 自動的に開く: true / local / external / ui / ui-external / tunnel / false
 		open: false,
 		// 通知ポップアップ: true / false (default: false)
-		notify: false
+		notify: false,
+		rewriteRules: [
+			/*
+			SSI対応
+			{
+				match: /<!--#include virtual="(.+?)" -->/g,
+				fn(req, res, match, filename) {
+					const includeFilePath = path.join(`${__dirname}/../../dist/`, filename);
+					if (fs.existsSync(includeFilePath)) {
+						return fs.readFileSync(includeFilePath);
+					} else {
+						return `<span style="color: red">\`${includeFilePath}\` could not be found</span>`;
+					}
+				}
+			}
+			*/
+		]
 	});
 	done();
 });
