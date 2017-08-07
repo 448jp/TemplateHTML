@@ -10,7 +10,7 @@ const browserSync = require("browser-sync").create();
 
 // Sassをコンパイルします。
 gulp.task("sass", () => {
-	return gulp.src(`${config.sassDir}${config.cssFilename}.sass`)
+	return gulp.src(`${config.sassDir}${config.cssFilename}.{sass,scss}`)
 		.pipe(sass())
 		.pipe(autoprefixer({
 			// see: https://github.com/ai/browserslist#queries
@@ -23,7 +23,7 @@ gulp.task("sass", () => {
 
 // Sassをsass-lintします。
 gulp.task("sassLint", () => {
-	return gulp.src(`${config.sassDir}**/*.sass`)
+	return gulp.src(`${config.sassDir}**/*.{sass,scss}`)
 		.pipe(sassLint({
 			configFile: ".sass-lint.yml"
 		}))
