@@ -13,10 +13,15 @@ gulp.task("watch", ["server"], (done) => {
 	gulp.watch(`${config.handlebarsDir}*.hbs`, ["assemble", "html-lint"]);
 	gulp.watch(`${config.handlebarsPartialsDir}*.hbs`, ["assemble"]);
 	gulp.watch(`${config.distDir}*.html`).on("change", browserSync.reload);
+
 	// Sass
 	gulp.watch(`${config.sassDir}**`, ["sassLint", "sass"]);
+
 	// JavaScript
-	gulp.watch(`${config.jsSourceDir}**`, ["watchify"]);
+	// by webpack
+	gulp.watch(`${config.jsSourceDir}**`, ["webpack"]);
+	// by Browserify
+	// gulp.watch(`${config.jsSourceDir}**`, ["watchify"]);
 	gulp.watch(`${config.distDir}js/*.js`).on("change", browserSync.reload);
 
 	done();

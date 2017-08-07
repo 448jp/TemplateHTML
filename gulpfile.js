@@ -9,5 +9,5 @@ requireDir("./gulp/tasks", {recurse: true});
 
 // デフォルトタスク
 gulp.task("default", (done) => {
-	runSequence("clean", ["assemble", "sass", "babelify"], "sassLint", "copy", done);
+	runSequence("clean", ["assemble", "sass", "webpack"], "sassLint", "copy", done);
 });
