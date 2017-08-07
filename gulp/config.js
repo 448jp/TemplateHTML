@@ -47,6 +47,8 @@ let config = {
 
 	// JSソースディレクトリ
 	jsSourceDir: `${sourceDir}js/`,
+	// JSソースパス
+	jsSourcePath: "",
 	// JSディレクトリ
 	jsDir: `${distDir}js/`,
 

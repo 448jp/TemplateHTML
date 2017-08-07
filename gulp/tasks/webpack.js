@@ -5,15 +5,15 @@ const gulpUtil = require("gulp-util");
 const webpack = require("webpack");
 
 const webpackOptions = {
-	entry: `./${config.jsSourceDir}jp/cupnoodle/blacktrio/${config.jsFilename}`,
+	entry: `./${config.jsSourceDir}${config.jsSourcePath}${config.jsFilename}`,
 	output: {
 		path: `${__dirname}/../../${config.jsDir}`,
 		filename: "app.js"
 	},
 	module: {
 		rules: [{
-			test: /\.js/,
-			exclude: /node_modules/,
+			test: /\.js$/,
+			exclude: /(node_modules|bower_components)/,
 			use: {
 				loader: "babel-loader",
 				options: {
