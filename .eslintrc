@@ -1,15 +1,26 @@
 {
-	"extends": ["eslint:recommended"],
+	// 継承するルール
+	"extends": [
+		"eslint:recommended",
+		"prettier"
+	],
+	// プラグイン
 	"plugins": [],
+	// パーサー
 	"parser": "babel-eslint",
+	// パーサーオプション
 	"parserOptions": {
 		"sourceType": "module"
 	},
+	// 環境設定
 	"env": {
 		"browser": true,
+		"es6": true,
 		"jquery": true
 	},
-	"globals": {
-	},
-	"rules": {}
+	// グローバル変数
+	"globals": {},
+	// ルール
+	"rules": {
+	}
 }

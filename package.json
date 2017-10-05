@@ -6,6 +6,7 @@
     "start": "gulp watch",
     "watch": "gulp watch",
     "lint-staged": "lint-staged",
+    "prettier": "prettier --write \"src/js/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +21,8 @@
       "sass-lint -v -q"
     ],
     "*.js": [
-      "prettier --write \"src/js/**/*.js\""
+      "prettier",
+      "git add"
     ]
   },
   "author": "OKI Yoshiya <oki@ceroan.jp> (http://ceroan.jp/)",
@@ -43,10 +45,12 @@
     "browserify": "^14.4.0",
     "del": "^3.0.0",
     "eslint": "^4.8.0",
+    "eslint-config-prettier": "^2.6.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^4.0.0",
     "gulp-extname": "^0.2.2",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
