@@ -16,8 +16,11 @@
     "lint-staged"
   ],
   "lint-staged": {
-    "*.@(sass)": [
+    "*.sass": [
       "sass-lint -v -q"
+    ],
+    "*.js": [
+      "prettier --write \"src/js/**/*.js\""
     ]
   },
   "author": "OKI Yoshiya <oki@ceroan.jp> (http://ceroan.jp/)",
@@ -56,6 +59,7 @@
     "lint-staged": "^4.2.3",
     "minimist": "^1.2.0",
     "pre-commit": "^1.2.2",
+    "prettier": "^1.7.4",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.2.0",
     "sass-lint": "^1.10.2",
