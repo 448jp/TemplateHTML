@@ -4,6 +4,7 @@ const gulp = require("gulp");
 const config = require("../config").config;
 const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
+const stylelint = require("gulp-stylelint");
 const sassLint = require("gulp-sass-lint");
 const concat = require("gulp-concat");
 const browserSync = require("browser-sync").create();
@@ -19,6 +20,22 @@ gulp.task("sass", () => {
 		}))
 		.pipe(gulp.dest(config.cssDir))
 		.pipe(gulp.browserSync.stream());
+});
+
+/**
+ * stylelintでscssファイルをlintします。
+ */
+gulp.task("stylelint", (done) => {
+	return gulp.src(`${config.sassDir}**/*.scss`)
+		.pipe(stylelint({
+			syntax: "scss",
+			reporters: [
+				{
+					formatter: "string",
+					console: true
+				}
+			]
+		}));
 });
 
 // Sassをsass-lintします。

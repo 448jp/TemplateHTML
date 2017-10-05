@@ -1,0 +1,16 @@
+{
+	"extends": "stylelint-config-standard",
+	"plugins": [
+		"stylelint-scss"
+	],
+	"rules": {
+		"indentation": "tab",
+		"color-hex-length": "long",
+		"selector-max-id": 0,
+		"max-nesting-depth": 3,
+		"property-no-vendor-prefix": true,
+		"function-url-quotes": "never",
+		"at-rule-no-unknown": null,
+		"scss/at-rule-no-unknown": true
+	}
+}
