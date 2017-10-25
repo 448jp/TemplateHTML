@@ -1,8 +1,0 @@
-html:not(.viewport--fixed) {
-  -webkit-text-size-adjust: 100%; }
-
-a {
-  color: #0000ff; }
-
-body {
-  background-color: white; }
