@@ -8,5 +8,7 @@ gulp.task("eslint", () => {
 		.src(`${config.jsSourceDir}${config.jsSourcePath}**/*.js`)
 		.pipe(eslint())
 		.pipe(eslint.format())
-		.pipe(eslint.failAfterError());
+
+		// lintエラーのときはタスクの実行を失敗とする
+		// .pipe(eslint.failAfterError());
 });
