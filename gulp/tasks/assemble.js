@@ -13,6 +13,15 @@ gulp.task("assemble-load", (done) => {
 	app.layouts(`${config.handlebarsLayoutsDir}*.hbs`);
 	app.data(`${config.handlebarsDataDir}website.json`);
 	app.pages(`${config.sourceDir}*.hbs`);
+
+	// Assembleの古いビルトイン変数にアクセス可能にする
+	// https://github.com/assemble/assemble/issues/829
+	const get = require("get-value");
+	app.engine("hbs", require("engine-handlebars"));
+	app.helper("get", function(prop) {
+		return get(this.context, prop);
+	});
+
 	done();
 });
 
