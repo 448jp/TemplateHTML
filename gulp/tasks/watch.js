@@ -8,7 +8,7 @@ const browserSync = require("browser-sync").create();
 gulp.browserSync = browserSync;
 
 // ファイル変更を監視します。
-gulp.task("watch", ["server"], (done) => {
+gulp.task("watch", ["server"], done => {
 	// Assemble
 	gulp.watch(`${config.handlebarsDir}*.hbs`, ["assemble"]);
 	gulp.watch(`${config.handlebarsPartialsDir}*.hbs`, ["assemble"]);
@@ -28,13 +28,13 @@ gulp.task("watch", ["server"], (done) => {
 });
 
 // ローカルサーバーを起動します。
-gulp.task("server", ["default"], (done) => {
+gulp.task("server", ["default"], done => {
 	browserSync.init({
 		server: {
 			baseDir: config.distDir
 		},
 		// 自動的に開く: true / local / external / ui / ui-external / tunnel / false
-		open: false,
+		open: "external",
 		// 通知ポップアップ: true / false (default: false)
 		notify: false,
 		rewriteRules: [
