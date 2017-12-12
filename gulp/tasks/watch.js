@@ -24,6 +24,9 @@ gulp.task("watch", ["server"], done => {
 	// gulp.watch(`${config.jsSourceDir}**`, ["watchify"]);
 	gulp.watch(`${config.distDir}js/*.js`).on("change", browserSync.reload);
 
+	// Images
+	gulp.watch(`${config.imagesDir}**`, ["copy"]);
+
 	done();
 });
 

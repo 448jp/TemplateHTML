@@ -5,9 +5,7 @@ const minimist = require("minimist");
 // 起動オプションの受け取り
 let options = minimist(process.argv.slice(2), {
 	string: "env",
-	boolean: [
-		"isProduction"
-	],
+	boolean: ["isProduction"],
 	default: {
 		isProduction: false
 	}
@@ -43,7 +41,7 @@ let config = {
 	sassDir: `${sourceDir}sass/`,
 
 	// 画像ディレクトリ
-	imagesDir: `images/`,
+	imagesDir: `${sourceDir}images/`,
 
 	// JSソースディレクトリ
 	jsSourceDir: `${sourceDir}js/`,
