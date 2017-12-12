@@ -1,7 +1,15 @@
 @charset "utf-8";
 
+$breakPointMobile: 671px;
+
 $colorBlack: #000000;
 $colorWhite: #ffffff;
 $colorLink: #0000ff;
 
 $imagesPath: "../images/";
+
+// イージング
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);

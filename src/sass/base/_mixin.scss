@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+@mixin minScreen($breakPoint) {
+	@media screen and (min-width: $breakPoint) {
+		@content;
+	}
+}
+
 @mixin clearfix {
 	content: ".";
 	display: block;
@@ -7,4 +13,19 @@
 	height: 0;
 	font-size: 0;
 	visibility: hidden;
+}
+
+@function getVw($size, $viewport: 320) {
+	$rate: 100 / $viewport;
+	@return $rate * $size * 1vw;
+}
+
+@mixin remToVw($rem: 1) {
+	font-size: $rem * 16px;
+	font-size: getVw($rem * 16);
+}
+
+@mixin pxToVw($px: 16) {
+	font-size: $px * 1px;
+	font-size: getVw($px, 320);
 }
