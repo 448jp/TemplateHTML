@@ -19,7 +19,7 @@ gulp.task("watch", ["server"], done => {
 
 	// JavaScript
 	// by webpack
-	gulp.watch(`${config.jsSourceDir}**`, ["webpack"]);
+	gulp.watch(`${config.jsSourceDir}**`, ["webpack:dev"]);
 	// by Browserify
 	// gulp.watch(`${config.jsSourceDir}**`, ["watchify"]);
 	gulp.watch(`${config.distDir}js/*.js`).on("change", browserSync.reload);

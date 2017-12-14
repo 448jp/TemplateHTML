@@ -112,3 +112,21 @@ gulp.task("webpack", ["eslint"], done => {
 		done();
 	});
 });
+
+// キャッシュのためwebpackコンパイラーのインスタンスを作成
+const devCompiler = webpack(webpackOptions);
+
+// webpackでJavaScriptをコンパイルします。
+gulp.task("webpack:dev", ["eslint"], done => {
+	devCompiler.run((error, stats) => {
+		if (error) {
+			throw new gulpUtil.PluginError("webpack", error);
+		}
+
+		/*gulpUtil.log("[webpack]", stats.toString({
+			colors: true
+		}));*/
+
+		done();
+	});
+});
