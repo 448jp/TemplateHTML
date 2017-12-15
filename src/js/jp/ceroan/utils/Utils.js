@@ -36,9 +36,9 @@ export default class Utils {
 		const ua = navigator.userAgent.toLowerCase();
 		let isIOs = false;
 		if (
-			ua.indexOf("ipod") != -1 ||
-			ua.indexOf("iphone") != -1 ||
-			ua.indexOf("ipad") != -1
+			ua.indexOf("ipod") !== -1 ||
+			ua.indexOf("iphone") !== -1 ||
+			ua.indexOf("ipad") !== -1
 		) {
 			isIOs = true;
 		}
