@@ -27,7 +27,7 @@ let config = {
 	// ディレクトリ名
 
 	// Handlebarsディレクトリ
-	handlebarsDir: `${sourceDir}**`,
+	handlebarsDir: `${sourceDir}**/`,
 	// Handlebarsパーシャルディレクトリ
 	handlebarsPartialsDir: `${sourceDir}_includes/`,
 	// Handlebarsレイアウトディレクトリ

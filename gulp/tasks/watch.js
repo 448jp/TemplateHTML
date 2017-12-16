@@ -10,7 +10,7 @@ gulp.browserSync = browserSync;
 // ファイル変更を監視します。
 gulp.task("watch", ["server"], done => {
 	// Assemble
-	gulp.watch(`${config.handlebarsDir}**/*.hbs`, ["assemble"]);
+	gulp.watch(`${config.handlebarsDir}*.hbs`, ["assemble"]);
 	gulp.watch(`${config.handlebarsPartialsDir}*.hbs`, ["assemble"]);
 	gulp.watch(`${config.distDir}*.html`).on("change", browserSync.reload);
 
