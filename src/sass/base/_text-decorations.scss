@@ -5,10 +5,12 @@
 // 横向きでの文字サイズを調整する
 // Safariのみ有効、Chromeでは無視
 // https://productforums.google.com/forum/#!topic/chrome-ja/7Y2r_dYFWrg
-html:not(.viewport--fixed) {
-	/* stylelint-disable property-no-vendor-prefix */
-	-webkit-text-size-adjust: 100%;
-	/* stylelint-enable property-no-vendor-prefix */
+html {
+	&:not(.viewport--fixed) {
+		/* sass-lint:disable no-vendor-prefixes */
+		-webkit-text-size-adjust: 100%;
+		/* sass-lint:enable no-vendor-prefixes */
+	}
 }
 
 a {
