@@ -24,11 +24,35 @@ const webpackOptions = {
 						]
 					}
 				}
+			},
+			{
+				test: /\.vue/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: "vue-loader",
+					options: {
+						transformToRequire: {
+							source: "srcset"
+						}
+					}
+				}
+			},
+			{
+				test: /\.(png|jpg|gif)$/,
+				use: {
+					loader: "file-loader",
+					options: {
+						publicPath: "img/pages/home/",
+						name: "[name].[ext]"
+					}
+				}
 			}
 		]
 	},
 	resolve: {
+		extensions: [".js", ".vue"],
 		alias: {
+			vue$: "vue/dist/vue.esm.js",
 			picturefill: path.resolve(
 				"node_modules",
 				"picturefill/dist/picturefill.min.js"
@@ -93,6 +117,11 @@ const webpackOptions = {
 		new webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery"
+		}),
+		new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: "'production'"
+			}
 		})
 	],
 	cache: true
@@ -100,7 +129,7 @@ const webpackOptions = {
 
 // webpackでJavaScriptをコンパイルします。
 gulp.task("webpack", ["eslint"], done => {
-	webpack(webpackOptions, (error, stats) => {
+	webpack(Object.assign(webpackOptions, {}), (error, stats) => {
 		if (error) {
 			throw new gulpUtil.PluginError("webpack", error);
 		}
@@ -114,7 +143,17 @@ gulp.task("webpack", ["eslint"], done => {
 });
 
 // キャッシュのためwebpackコンパイラーのインスタンスを作成
-const devCompiler = webpack(webpackOptions);
+const devCompiler = webpack(
+	Object.assign(webpackOptions, {
+		plugins: [
+			new webpack.optimize.UglifyJsPlugin({}),
+			new webpack.ProvidePlugin({
+				$: "jquery",
+				jQuery: "jquery"
+			})
+		]
+	})
+);
 
 // webpackでJavaScriptをコンパイルします。
 gulp.task("webpack:dev", ["eslint"], done => {
