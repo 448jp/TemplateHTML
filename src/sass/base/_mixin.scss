@@ -6,6 +6,12 @@
 	}
 }
 
+@mixin maxScreen($breakPoint) {
+	@media screen and (max-width: $breakPoint) {
+		@content;
+	}
+}
+
 @mixin clearfix {
 	content: ".";
 	display: block;
