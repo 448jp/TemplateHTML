@@ -14,11 +14,11 @@
 <meta property="og:title" content="{{website.ogp.title}}">
 <meta property="og:description" content="{{website.ogp.description}}">
 {{/is~}}
-{{#is website.twitter.enabled true~}}
+{{#is website.twitter.card.enabled true~}}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{website.twitter.title}}">
-<meta name="twitter:description" content="{{website.twitter.description}}">
-<meta name="twitter:image:src" content="{{website.twitter.imageUrl}}">
+<meta name="twitter:title" content="{{website.twitter.card.title}}">
+<meta name="twitter:description" content="{{website.twitter.card.description}}">
+<meta name="twitter:image:src" content="{{website.twitter.card.imageUrl}}">
 {{/is~}}
 {{> head_mixi~}}
 
