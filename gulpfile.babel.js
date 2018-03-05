@@ -5,9 +5,15 @@ const requireDir = require("require-dir");
 const runSequence = require("run-sequence");
 
 // タスクを読み込み
-requireDir("./gulp/tasks", {recurse: true});
+requireDir("./gulp/tasks", { recurse: true });
 
 // デフォルトタスク
-gulp.task("default", (done) => {
-	runSequence("clean", ["assemble", "sass", "webpack"], "sassLint", "copy", done);
+gulp.task("default", done => {
+	runSequence(
+		"clean",
+		["assemble", "sass", "webpack"],
+		"sassLint",
+		"copy",
+		done
+	);
 });
