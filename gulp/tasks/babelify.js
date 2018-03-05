@@ -10,7 +10,7 @@ const source = require("vinyl-source-stream");
 
 // browserify実行時のデフォルトオプション
 const browserifyOptions = {
-	entries: `${config.jsSourceDir}jp/ceroan/${config.jsFilename}`,
+	entries: `${config.jsSourceDir}${config.jsSourcePath}${config.jsFilename}`,
 	extensions: [".js"]
 };
 // babelify実行時のデフォルトオプション
@@ -19,7 +19,8 @@ const babelifyOptions = {
 };
 
 function compile(options, done) {
-	browserify(options).transform(babelify, babelifyOptions)
+	browserify(options)
+		.transform(babelify, babelifyOptions)
 		.bundle()
 		.on("error", function(error) {
 			this.emit("end");
@@ -33,12 +34,12 @@ function compile(options, done) {
 }
 
 // browserify + babelifyでJavaScriptをコンパイルします。
-gulp.task("babelify", (done) => {
+gulp.task("babelify", done => {
 	compile(browserifyOptions, done);
 });
 
 // browserify + babelify + watchifyでJavaScriptをコンパイルし、監視をします。
-gulp.task("watchify", (done) => {
+gulp.task("watchify", done => {
 	// browserify + watchify実行時のオプション（デフォルトオプションを上書き）
 	const newOptions = Object.assign(browserifyOptions, {
 		cache: {},
