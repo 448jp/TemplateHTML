@@ -5,7 +5,7 @@
     "build": "gulp --isProduction true",
     "start": "gulp watch",
     "watch": "gulp watch",
-    "lint-staged": "lint-staged",
+    "precommit": "lint-staged",
     "prettier": "prettier --write \"src/js/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,12 +13,10 @@
     "type": "git",
     "url": "https://448jp@bitbucket.org/448jp/project.git"
   },
-  "pre-commit": [
-    "lint-staged"
-  ],
   "lint-staged": {
-    "*.sass": [
-      "sass-lint -v -q"
+    "*.{sass,scss}": [
+      "sass-lint -v -q",
+      "git add"
     ],
     "*.js": [
       "prettier",
@@ -65,9 +63,9 @@
     "gulp-util": "^3.0.8",
     "handlebars": "^4.0.10",
     "handlebars-helpers": "^0.10.0",
+    "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "minimist": "^1.2.0",
-    "pre-commit": "^1.2.2",
     "prettier": "^1.7.4",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.2.0",
