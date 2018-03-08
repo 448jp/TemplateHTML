@@ -1,23 +1,23 @@
 <meta charset="utf-8">
 {{> head_viewport~}}
-<title>{{website.title}}</title>
-<meta name="description" content="{{website.meta.description}}">
+<title>{{default title website.title}}</title>
+<meta name="description" content="{{default description website.meta.description}}">
 <meta name="format-detection" content="telephone=no">
 {{#is website.ogp.enabled true~}}
 <meta property="fb:admins" content="{{website.facebook.admins}}">
 <meta property="fb:app_id" content="{{website.facebook.appId}}">
 <meta property="og:site_name" content="{{website.ogp.siteName}}">
 <meta property="og:type" content="{{website.ogp.type}}">
-<meta property="og:url" content="{{website.ogp.url}}">
-<meta property="og:image" content="{{website.ogp.imageUrl}}">
-<meta property="og:title" content="{{website.ogp.title}}">
-<meta property="og:description" content="{{website.ogp.description}}">
+<meta property="og:url" content="{{default ogp.url website.ogp.url}}">
+<meta property="og:image" content="{{default ogp.image website.ogp.imageUrl}}">
+<meta property="og:title" content="{{default ogp.title website.ogp.title}}">
+<meta property="og:description" content="{{default ogp.description website.ogp.description}}">
 {{/is~}}
 {{#is website.twitter.card.enabled true~}}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{website.twitter.card.title}}">
-<meta name="twitter:description" content="{{website.twitter.card.description}}">
-<meta name="twitter:image:src" content="{{website.twitter.card.imageUrl}}">
+<meta name="twitter:title" content="{{default ogp.url website.twitter.card.title}}">
+<meta name="twitter:description" content="{{default ogp.description website.twitter.card.description}}">
+<meta name="twitter:image:src" content="{{default ogp.image website.twitter.card.imageUrl}}">
 {{/is~}}
 {{> head_mixi~}}
 
