@@ -84,7 +84,6 @@ rules:
         - height
         - min-height
         - max-height
-        - font
         - font-family
         - -webkit-font-smoothing
         - -moz-osx-font-smoothing
@@ -99,6 +98,12 @@ rules:
         - visibility
         - opacity
         - z-index
+  # 特定のプロパティを禁止
+  no-disallowed-properties:
+    - 2
+    -
+      properties:
+        - font
   # 宣言の前のネストを不許可
   declarations-before-nesting: 2
   # ブロックの間に空行
