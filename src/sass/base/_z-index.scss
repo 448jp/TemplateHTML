@@ -1,0 +1,40 @@
+@import "_variables";
+
+@function z($options...) {
+	$optionLength: length($options);
+	$point: 1;
+	$isIndex: 1;
+
+	$tempMap: $zMap;
+	$getKey: nth($options, $optionLength);
+
+	@if($optionLength > 1) {
+		@each $option in $options {
+			@if($option != $getKey) {
+				$tempMap: map-get($tempMap, $option);
+			}
+		}
+	}
+
+	@if(($libsassVersion > 3.4 or $rubySass) and not $zMapReverse) {
+
+		$getValue: map-get($tempMap, $getKey);
+		$isIndex: index($tempMap, ($getKey $getValue));
+
+	} @else {
+		$counter: 1;
+		@if ($zMapReverse) {
+			$counter: length($tempMap);
+			$point: -1;
+		}
+
+		@each $mapKey, $mapValue in $tempMap {
+			@if $mapKey == $getKey {
+				$isIndex: $counter;
+			}
+			$counter: $counter + $point;
+		}
+	}
+
+	@return $isIndex;
+}

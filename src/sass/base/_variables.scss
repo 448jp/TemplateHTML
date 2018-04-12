@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+// Sass Version
+$libsassVersion: 3.4 !default;
+$rubySass: false !default;
+
 $breakPointMobile: 671px;
 
 $colorBlack: #000000;
@@ -7,6 +11,21 @@ $colorWhite: #ffffff;
 $colorLink: #0000ff;
 
 $imagesPath: "../images/";
+
+// z-index
+$zMapReverse: false !default;
+$zMap: (
+	front: true,
+	header: true,
+	modal: (
+		images: (
+			mask: true,
+			body: true
+		),
+		button: true,
+		close: true
+	)
+) !default;
 
 // イージング
 $easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
